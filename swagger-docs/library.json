@@ -1,0 +1,742 @@
+{
+    "basePath": "https://www.castcloud.org/api",
+    "swaggerVersion": "1.2",
+    "apiVersion": "1.0.0",
+    "resourcePath": "/library",
+    "apis": [
+        {
+            "path": "/library/casts",
+            "description": "Get users subcriptions",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get users subcriptions",
+                    "nickname": "Get users subcriptions",
+                    "type": "array",
+                    "items": {
+                        "$ref": "cast"
+                    },
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                },
+                {
+                    "method": "POST",
+                    "summary": "Subcribe to a cast",
+                    "nickname": "Subcribe to a cast",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "feedurl",
+                            "type": "string",
+                            "required": true,
+                            "description": "URL of podcast feed"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "description": "The displayname for the cast"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/casts.opml",
+            "description": "Get users subcriptions",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get users subcriptions as opml",
+                    "nickname": "Get users subcriptions as opml",
+                    "type": "array",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ],
+                    "produces": [
+                        "text/x-opml"
+                    ]
+                },
+                {
+                    "method": "POST",
+                    "summary": "Adds content of opml to users subscriptions",
+                    "nickname": "Adds content of opml to users subscriptions",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "opml",
+                            "type": "string",
+                            "required": true,
+                            "description": "Content of a regular opml file"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/casts/{id}",
+            "description": "Edit a subcription",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "summary": "Edit a subcription",
+                    "nickname": "Edit a subcription",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "The casts id"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "name",
+                            "type": "string",
+                            "required": true,
+                            "description": "The feeds display name"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                },
+                {
+                    "method": "DELETE",
+                    "summary": "Unsubscribe from a cast",
+                    "nickname": "Unsubscribe from a cast",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "The casts id"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/episode/{episodeid}",
+            "description": "Get a spesific episode",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get a spesific episode",
+                    "nickname": "Get a spesific episode",
+                    "type": "array",
+                    "items": {
+                        "$ref": "episode"
+                    },
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "episodeid",
+                            "type": "integer",
+                            "required": true,
+                            "description": "The episodes id"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/episodes/label/{label}",
+            "description": "Get all episodes of a label",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get episodes for label",
+                    "nickname": "Get episodes for label",
+                    "type": "array",
+                    "items": {
+                        "$ref": "episode"
+                    },
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "label",
+                            "type": "string",
+                            "required": true,
+                            "description": "The labelid"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "exclude",
+                            "type": "integer",
+                            "required": false,
+                            "description": "Comma separated event ids to exclude. Default: 70"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/episodes/{castid}",
+            "description": "Get all episodes of a cast",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get all episodes of a cast",
+                    "nickname": "Get all episodes of a cast",
+                    "type": "array",
+                    "items": {
+                        "$ref": "episode"
+                    },
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "castid",
+                            "type": "integer",
+                            "required": true,
+                            "description": "The casts id"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "exclude",
+                            "type": "integer",
+                            "required": false,
+                            "description": "Exclude episode with latest event type. Comma separated event type ids to exclude. Default: 70"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/events",
+            "description": "Get events",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get users tags",
+                    "nickname": "Get users tags",
+                    "type": "array",
+                    "items": {
+                        "$ref": "event"
+                    },
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "since",
+                            "type": "integer",
+                            "required": false,
+                            "description": "timestamp of last call"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "episodeid",
+                            "type": "integer",
+                            "required": false,
+                            "description": "filter by episodeid"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "exclude",
+                            "type": "integer",
+                            "required": false,
+                            "description": "Comma separated event type ids to exclude. Exclude events for episodes where the most recent event has this type. Default: 70. Ignored if since or episodeid parameters are set."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                },
+                {
+                    "method": "POST",
+                    "summary": "Add events",
+                    "nickname": "Add events",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "json",
+                            "type": "array",
+                            "required": true,
+                            "description": "New events",
+                            "items": {
+                                "$ref": "event"
+                            }
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/labels",
+            "description": "Get users labels",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get users labels",
+                    "nickname": "Get users labels",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                },
+                {
+                    "method": "POST",
+                    "summary": "Create a new label",
+                    "nickname": "Create a new label",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "name",
+                            "type": "string",
+                            "required": true,
+                            "description": "The name of the new label. Mimimum 1 character"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "content",
+                            "type": "string",
+                            "required": false,
+                            "description": "The content of the label. See GET label for formatting"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "expanded",
+                            "type": "string",
+                            "required": false,
+                            "description": "Wether or not the label is expanded in the client UI. Default false. root is always true."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        },
+                        {
+                            "code": 400,
+                            "message": "Name to short"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/labels/{id}",
+            "description": "Edit a label",
+            "operations": [
+                {
+                    "method": "PUT",
+                    "summary": "Edit a label",
+                    "nickname": "Edit a label",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "The id of the label you want to edit"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "description": "The name of the new label"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "content",
+                            "type": "string",
+                            "required": false,
+                            "description": "The content of the label. See GET label for formatting"
+                        },
+                        {
+                            "paramType": "form",
+                            "name": "expanded",
+                            "type": "string",
+                            "required": false,
+                            "description": "Wether or not the label is expanded in the client UI. Default false. root is always true."
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/labels/{labelid}",
+            "description": "Delete a label",
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "summary": "Delete Label",
+                    "nickname": "Delete Label",
+                    "type": "void",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "path",
+                            "name": "labelid",
+                            "type": "integer",
+                            "required": true,
+                            "description": "ID of the label that is to be removed"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/library/newepisodes",
+            "description": "Get new episodes",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Get new episodes",
+                    "nickname": "Get new episodes",
+                    "type": "newepisodesresult",
+                    "parameters": [
+                        {
+                            "paramType": "header",
+                            "name": "Authorization",
+                            "type": "string",
+                            "required": true,
+                            "description": "clients login token"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "since",
+                            "type": "integer",
+                            "required": false,
+                            "description": "timestamp of last call"
+                        },
+                        {
+                            "paramType": "query",
+                            "name": "exclude",
+                            "type": "integer",
+                            "required": false,
+                            "description": "Exclude episode with latest event type. Comma separated event type ids to exclude. Default: 70"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Bad token"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+        "newepisodesresult": {
+            "id": "newepisodesresult",
+            "required": [
+                "episodes",
+                "timestamp"
+            ],
+            "properties": {
+                "timestamp": {
+                    "description": "Timestamp for the request",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "episodes": {
+                    "description": "Array of all the episodes",
+                    "type": "array",
+                    "items": {
+                        "$ref": "episode"
+                    }
+                }
+            }
+        },
+        "episode": {
+            "id": "episode",
+            "required": [
+                "castid",
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "description": "Unique identifier for the episode",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "castid": {
+                    "description": "Unique identifier for the cast related to the episode",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "lastevent": {
+                    "description": "The episodes last event",
+                    "$ref": "event"
+                },
+                "feed": {
+                    "description": "All data available in the episodes item",
+                    "type": "array"
+                }
+            }
+        },
+        "event": {
+            "id": "event",
+            "required": [
+                "clientts",
+                "episodeid",
+                "positionts",
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "description": "The event type",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "episodeid": {
+                    "description": "The id of the episode it relates to",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "positionts": {
+                    "description": "The position where the event occured",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "clientts": {
+                    "description": "The clients unix timestamp of when the event occured",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "concurrentorder": {
+                    "description": "If multiple events occure on the same time, This wil decribe the order of the events.",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "clientname": {
+                    "description": "Name of the client that sent the event",
+                    "type": "string"
+                },
+                "clientdescription": {
+                    "description": "Description of the client that sent the event",
+                    "type": "string"
+                }
+            }
+        },
+        "cast": {
+            "id": "cast",
+            "required": [
+                "feed",
+                "id",
+                "name",
+                "url"
+            ],
+            "properties": {
+                "id": {
+                    "description": "The labels individual ID",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "The label structure. root is the root directory. All labels are formated label/labelname where labelname is the name of the label",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "CSV containging the label order. Labels are formated label/labelid where labelid is the labels uniqe id. Casts are formated cast/castid where cast is the casts unique id Only root can contain labels.",
+                    "type": "string"
+                },
+                "expanded": {
+                    "description": "If the label is open or closed",
+                    "type": "boolean"
+                },
+                "root": {
+                    "description": "If this is the root directory",
+                    "type": "boolean"
+                }
+            }
+        }
+    },
+    "produces": [
+        "application/json"
+    ]
+}
