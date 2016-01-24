@@ -100,7 +100,7 @@ becomes
 		<td>false</td>
 		<td>Client Version</td>
 	</tr>
-	<tr>
+<!--	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -124,7 +124,8 @@ becomes
 		<td></td>
 		<td></td>
 		<td></td>
-	</tr>
+	</tr>-->
+</table>
 
 This call registers the user's client and returns the client authorization token. The authorization token is used for all other requests. `UUID`, `name` and `description` fields are important as these are used actively. 
 
