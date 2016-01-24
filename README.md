@@ -66,6 +66,66 @@ becomes
 ```
 
 ### Account/Login
+<table>
+	<tr>
+		<th colspan="2">Post: Account/Login<th>
+	</tr>
+	<tr>
+		<th>Parameter</th>
+		<th>Required</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>username</td>
+		<td>true</td>
+		<td>Users username</td>
+	</tr>
+	<tr>
+		<td>password</td>
+		<td>true</td>
+		<td>Users password</td>
+	</tr>
+	<tr>
+		<td>clientname</td>
+		<td>true</td>
+		<td>Client name</td>
+	</tr>
+	<tr>
+		<td>clientdescription</td>
+		<td>true</td>
+		<td>Client Description. e.g. Sallys iPad</td>
+	</tr>
+	<tr>
+		<td>clientversion</td>
+		<td>false</td>
+		<td>Client Version</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
 This call registers the user's client and returns the client authorization token. The authorization token is used for all other requests. `UUID`, `name` and `description` fields are important as these are used actively. 
 
 __Example:__
